@@ -3,7 +3,7 @@ meteor-test-dir-order
 
 Example meteor app to test load order of directories
 
-(Documentation)(http://docs.meteor.com/#structuringyourapp) states:
+The [Meteor documentation](http://docs.meteor.com/#structuringyourapp) states:
 
 > The JavaScript and CSS files in an application are loaded according to these rules:
 > 
@@ -26,7 +26,7 @@ Given the following directory structure:
 Expected load order is:
 ```
 // client
-lib
+lib   <-- note lib directory
 a/lib
 client/lib
 common/lib
@@ -35,7 +35,7 @@ client
 common
 
 // server
-lib
+lib   <--
 a/lib
 common/lib
 server/lib
@@ -50,7 +50,7 @@ Actual load order:
 a/lib
 client/lib
 common/lib
-lib
+lib   <---  bummer
 a
 client
 common
@@ -59,7 +59,7 @@ common
 a/lib
 common/lib
 server/lib
-lib
+lib   <---  :-(
 a
 common
 server
